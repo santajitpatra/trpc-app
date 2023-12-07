@@ -7,7 +7,7 @@ async function main() {
   const resultCreate = await client.createUser.mutate("hi client");
   console.log(resultCreate);
 
-  const resultUser = await client.users.getUser.query()
+  const resultUser = await client.getUser.query()
   console.log(resultUser);
 }
 main();

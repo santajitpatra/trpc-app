@@ -3,7 +3,7 @@ import { userRouter } from "./users";
 
 
 export const appRouter = t.router({
-  getUser: t.procedure.query(() => {
+  getUserOld: t.procedure.query(() => {
     return { name: "John Doe" };
   }),
   createUser: t.procedure
@@ -18,3 +18,4 @@ export const appRouter = t.router({
     users: userRouter
 });
 
+export const mergedRouter = t.mergeRouters(appRouter,userRouter)
