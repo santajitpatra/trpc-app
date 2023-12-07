@@ -1,14 +1,16 @@
 import { client } from "./client";
 
 async function main() {
-  // const result = await client.getUser.query()
-  // console.log(result);
-  const resultCreate = await client.createUser.mutate("trryfgggg")
+  const result = await client.getUser.query();
+  console.log(result);
 
-  console.log(resultCreate)
+  const resultCreate = await client.createUser.mutate("hi client");
+  console.log(resultCreate);
+
+  const resultUser = await client.users.getUser.query()
+  console.log(resultUser);
 }
 main();
-
 
 function App() {
   return (

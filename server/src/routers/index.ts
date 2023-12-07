@@ -1,6 +1,6 @@
-import { initTRPC } from "@trpc/server";
+import { t } from "../trpc";
+import { userRouter } from "./users";
 
-export const t = initTRPC.create();
 
 export const appRouter = t.router({
   getUser: t.procedure.query(() => {
@@ -8,14 +8,13 @@ export const appRouter = t.router({
   }),
   createUser: t.procedure
     .input((v) => {
-      if (typeof v === "string") return  v ;
+      if (typeof v === "string") return v;
       throw new Error("Invalid input");
     })
     .mutation((req) => {
       console.log(`first ${req.input}`);
       return true;
     }),
+    users: userRouter
 });
 
-// export type definition of API
-export type AppRouter = typeof appRouter;

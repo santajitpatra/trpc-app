@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { appRouter } from "./server";
+import { appRouter } from "./routers";
 import * as trpcExpress from '@trpc/server/adapters/express';
 
 const app = express();
@@ -13,6 +13,4 @@ app.use(
     router: appRouter,
   })),
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
+app.listen(port);
