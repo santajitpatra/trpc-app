@@ -12,7 +12,7 @@ export const userRouter = t.router({
     .output(z.object({ name: z.string(), id: z.string() }))
 
     .mutation((req) => {
-      console.log(req.ctx.isAdmin)
+      console.log(req.ctx.isAdmin);
       console.log(
         `Updating user ${req.input.userId} to have the name ${req.input.name}`
       );

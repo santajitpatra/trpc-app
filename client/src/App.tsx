@@ -12,6 +12,9 @@ async function main() {
     name: "santa",
   });
   console.log(resultUser);
+
+  const resultAuth = await client.secretData.query()
+  console.log(resultAuth);
 }
 main();
 
