@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import {  mergedRouter } from "./routers";
+import { appRouter } from "./routers";
 import * as trpcExpress from '@trpc/server/adapters/express';
 
 const app = express();
@@ -8,12 +8,12 @@ const port = process.env.PORT || 3000;
 app.use(cors({ origin: "http://localhost:5173" }));
 
 app.use(
-  "/trpc",
+  '/trpc',
   trpcExpress.createExpressMiddleware({
-    router: mergedRouter,
-  })
-),
-  app.listen(port);
+    router: appRouter,
+  })),
+
+app.listen(port);
 
 // export type definition of API
-export type AppRouter = typeof mergedRouter;
+export type AppRouter = typeof appRouter;

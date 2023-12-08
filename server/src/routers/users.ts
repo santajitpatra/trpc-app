@@ -1,9 +1,10 @@
+import { z } from "zod";
 import { t } from "../trpc";
 
-export const userRouter = t.router({
-  getUser: t.procedure.query(() => {
-    return {id: 1, name: "John Doe", key: "FDSFDSGF" };
-  }),
-  
-});
+const userProcedure = t.procedure.input(z.object({ userId: z.string() }));
 
+export const userRouter = t.router({
+  get: userProcedure.query(({ input }) => {
+    return { id: input.userId };
+  }),
+});

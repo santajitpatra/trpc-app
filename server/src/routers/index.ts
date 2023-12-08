@@ -15,7 +15,6 @@ export const appRouter = t.router({
       console.log(`first ${req.input}`);
       return true;
     }),
-    users: userRouter
+  users: userRouter,
 });
 
-export const mergedRouter = t.mergeRouters(appRouter,userRouter)

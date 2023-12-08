@@ -1,13 +1,13 @@
 import { client } from "./client";
 
 async function main() {
-  const result = await client.getUser.query();
+  const result = await client.getUserOld.query();
   console.log(result);
 
   const resultCreate = await client.createUser.mutate("hi client");
   console.log(resultCreate);
 
-  const resultUser = await client.getUser.query()
+  const resultUser = await client.users.get.query({userId: "005"})
   console.log(resultUser);
 }
 main();
